@@ -67,6 +67,7 @@ public class Main extends Application {
         projects.setSpacing(12);
         projects.setPadding(new Insets(12));
         projects.setAlignment(Pos.TOP_CENTER);
+        projects.setMargin(projects, new Insets(12,12,12,12));
 
         VBox projectsWrapper = new VBox();
         projectsWrapper.getChildren().addAll(projects,addProject);
@@ -117,7 +118,7 @@ public class Main extends Application {
         Background tasks_bg = new Background(new BackgroundFill(Color.rgb(255,255,255), new CornerRadii(5),new Insets(0)));
 
         layout.setBackground(bg);
-        //projects.setBackground(projects_bg);
+        projects.setBackground(projects_bg);
         tasks.setBackground(tasks_bg);
 
         scene1 = new Scene(layout,800,600);
