@@ -15,8 +15,10 @@ public class ConfirmBox {
     //returns true or false depending on whether the user chose "yes" or "no"
     public static boolean display(String title, String message) {
         Stage window = new Stage();
+
         //makes the window modal
         window.initModality(Modality.APPLICATION_MODAL);
+
         window.setTitle(title);
         window.setMinWidth(250);
         window.setMinHeight(200);

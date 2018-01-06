@@ -19,8 +19,10 @@ public class ProjectSetupBox {
 
     public static Project display() {
         Stage window = new Stage();
+
         //makes the window modal
         window.initModality(Modality.APPLICATION_MODAL);
+
         window.setTitle("Create a new project");
         window.setMinWidth(400);
         window.setMinHeight(200);
@@ -43,9 +45,7 @@ public class ProjectSetupBox {
         desiredColor = colorPicker.getValue();
 
         //do nothing when user presses the "x" button to close
-        window.setOnCloseRequest(e -> {
-            e.consume();
-        });
+        window.setOnCloseRequest(e -> e.consume());
 
         //set desired color to the chosen color
         colorPicker.setOnAction(e -> {
@@ -77,7 +77,9 @@ public class ProjectSetupBox {
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label,input,label2,colorPicker,ok);
         layout.setAlignment(Pos.CENTER);
+
         window.getIcons().add(new Image(Main.class.getResourceAsStream("data/tasks.png")));
+
         Scene scene = new Scene(layout);
         window.setScene(scene);
 

@@ -22,10 +22,12 @@ public class Project extends StackPane {
     //returns a StackPane representation of a Project object
     public StackPane getStackPane() {
         StackPane proj = new StackPane();
+
         Label n = new Label(pn);
         n.setTextFill(Color.WHITE);
+
         Rectangle rec = new Rectangle(r_w,100, pf);
-        //rec.getStyleClass().add("highlight");
+
         proj.getChildren().addAll(rec, n);
         return proj;
     }
