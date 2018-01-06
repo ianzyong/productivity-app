@@ -9,8 +9,10 @@ import javafx.geometry.*;
 
 public class Popup {
 
+    //displays a generic popup box with a title, message, and OK button
     public static void display(String title, String message) {
         Stage window = new Stage();
+        //makes the window modal
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(250);
@@ -21,9 +23,7 @@ public class Popup {
         label.setText(message);
 
         Button ok = new Button("OK");
-        ok.setOnAction(e -> {
-            window.close();
-        });
+        ok.setOnAction(e -> window.close());
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label,ok);
@@ -31,6 +31,8 @@ public class Popup {
         window.getIcons().add(new Image(Main.class.getResourceAsStream("data/tasks.png")));
         Scene scene = new Scene(layout);
         window.setScene(scene);
+
+        //wait until OK is pressed or window is closed to resume the program
         window.showAndWait();
 
     }
