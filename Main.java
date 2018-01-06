@@ -18,6 +18,10 @@ import javafx.geometry.Insets;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 import static jdk.nashorn.internal.objects.Global.Infinity;
 
 public class Main extends Application {
@@ -165,6 +169,16 @@ public class Main extends Application {
     private void closeProgram() {
         Boolean answer = ConfirmBox.display("Exit", "Are you sure you want to exit?");
         if(answer) { //if the user chose "yes"
+            PrintWriter writer = null;
+            try {
+                writer = new PrintWriter("save.txt", "UTF-8");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            writer.println("Save string goes here"); //write a save string to a file called "save.txt"
+            writer.close();
             System.out.println("File saved!"); //pseudocode to represent saving the state of the program
             window.close();
         }
